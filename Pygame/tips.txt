@@ -1,0 +1,6 @@
+Surface area increrases when rotating
+- Make sure to save old instance of image so when rotated it doesn't change
+
+For transparent background on images use .convert_alpha()
+
+Use OOPy Animation 
