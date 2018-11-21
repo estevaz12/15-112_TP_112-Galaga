@@ -1,7 +1,7 @@
 import pygame
-from gameObject import GameObject
+from enemy import Enemy
 
-class Boss(GameObject):
+class Boss(Enemy):
     score = 150
 
     @staticmethod

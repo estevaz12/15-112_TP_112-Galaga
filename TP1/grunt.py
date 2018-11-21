@@ -1,9 +1,9 @@
 import pygame
-from gameObject import GameObject
+from enemy import Enemy
 
-class Grunt(GameObject):
+class Grunt(Enemy):
     score = 50
-    
+
     @staticmethod
     def init(screenWidth):
         Grunt.size = int(screenWidth * 0.06) # 6% of the screenWidth

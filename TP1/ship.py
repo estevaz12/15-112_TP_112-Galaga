@@ -13,9 +13,10 @@ class Ship(GameObject):
         Ship.shipImage = pygame.transform.scale(\
         pygame.image.load('images/ship.png').convert_alpha(), (Ship.size, Ship.size))
 
-    def __init__(self, x, y):
+    def __init__(self, x, y, lives=2):
         super(Ship, self).__init__(x, y, Ship.shipImage, Ship.size)
         self.speed = 4
+        self.lives = lives
 
     def update(self, keysDown, screenWidth):
         # move left or right but don't go off the screen
@@ -33,3 +34,9 @@ class Ship(GameObject):
             if keysDown(pygame.K_LEFT):
                 self.x += self.speed * -1
         self.updateRect()
+
+    def hurt(self, startX, startY):
+        if self.lives > 0:
+            return Ship(startX, startY, self.lives-1)
+        else:
+            return []

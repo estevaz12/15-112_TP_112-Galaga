@@ -1,9 +1,9 @@
 import pygame
-from gameObject import GameObject
+from enemy import Enemy
 
-class Guard(GameObject):
+class Guard(Enemy):
     score = 80
-    
+
     @staticmethod
     def init(screenWidth):
         Guard.size = int(screenWidth * 0.06) # 6% of the screenWidth
