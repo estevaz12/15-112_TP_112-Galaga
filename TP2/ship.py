@@ -18,21 +18,33 @@ class Ship(GameObject):
         self.speed = 4
         self.lives = lives
 
-    def update(self, keysDown, screenWidth):
+    def getBucket(self, buckets, screenWidth):
+        values = sorted(buckets.keys())
+        cols = screenWidth // len(values)
+        x = int(self.x // cols)
+        key = values[x]
+        return key
+
+    def update(self, keysDown, screenWidth, buckets):
+        bucket = self.getBucket(buckets, screenWidth)
         # move left or right but don't go off the screen
         if self.rect.left > 0:
             if keysDown(pygame.K_LEFT):
                 self.x += self.speed * -1
+                buckets[bucket].append(-1)
         else:
             if keysDown(pygame.K_RIGHT):
                 self.x += self.speed
+                buckets[bucket].append(1)
 
         if self.rect.right < screenWidth:
             if keysDown(pygame.K_RIGHT):
                 self.x += self.speed
+                buckets[bucket].append(1)
         else:
             if keysDown(pygame.K_LEFT):
                 self.x += self.speed * -1
+                buckets[bucket].append(-1)
         self.updateRect()
 
     def hurt(self, startX, startY):

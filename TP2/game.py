@@ -12,6 +12,7 @@ from gameState import GamePlay
 class Game(PygameGame):
     def init(self):
         pygame.font.init()
+        pygame.mixer.init()
         self.state = "start"
 
         # Start state
