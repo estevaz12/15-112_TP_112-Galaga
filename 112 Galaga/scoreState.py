@@ -1,3 +1,5 @@
+# Everything that has to do with name entering and the scoreboard
+
 import pygame
 import string
 from pygameGame import PygameGame

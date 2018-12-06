@@ -1,3 +1,5 @@
+# Creates the classes for the enemies and their appropiate behavior
+
 import pygame
 import math
 import random

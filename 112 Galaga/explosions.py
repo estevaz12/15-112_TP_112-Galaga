@@ -1,3 +1,5 @@
+# Creates the animation for explosions
+
 import pygame
 import os
 
@@ -36,17 +38,6 @@ class sExplosion(Explosion):
 
     def __init__(self, center):
         super(sExplosion, self).__init__(center, sExplosion.images)
-
-    def update(self):
-        now = pygame.time.get_ticks()
-        if now - self.last_update > self.frame_rate:
-            self.last_update = now
-            self.frame += 1
-        if self.frame == len(self.imageLst):
-            self.kill()
-        else:
-            self.image = self.imageLst[self.frame]
-            self.rect = self.image.get_rect(center=self.rect.center)
 
 class eExplosion(Explosion):
     @staticmethod

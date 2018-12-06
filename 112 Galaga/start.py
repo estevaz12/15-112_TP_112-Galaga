@@ -1,3 +1,5 @@
+# Everything that has to do with the start screen
+
 import pygame
 from pygameGame import PygameGame
 

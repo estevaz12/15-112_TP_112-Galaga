@@ -1,3 +1,5 @@
+# Basic class for all game objects
+
 '''
 From https://github.com/LBPeraza/Pygame-Asteroids/tree/master/Asteroids
 '''

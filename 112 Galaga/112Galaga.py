@@ -1,3 +1,5 @@
+# Runs the game
+
 '''
 Concept from Game.py by Lukas Peraza
 https://github.com/LBPeraza/Pygame-Asteroids/tree/master/Asteroids

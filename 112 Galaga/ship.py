@@ -1,3 +1,5 @@
+# Creates ship class and gives it the appropiate methods
+
 import pygame
 from gameObject import GameObject
 

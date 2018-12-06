@@ -1,13 +1,10 @@
+# Makes pygame like tkinter
+
 import pygame
 
 '''
 Framework created by Lukas Peraza
 https://github.com/LBPeraza/Pygame-Asteroids/blob/master/pygamegame.py
-
-- you should remove the print calls from any function you aren't using
-- you might want to move the pygame.display.flip() to your redrawAll function,
-    in case you don't need to update the entire display every frame (then you
-    should use pygame.display.update(Rect) instead)
 '''
 
 class PygameGame(object):

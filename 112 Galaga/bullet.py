@@ -1,3 +1,5 @@
+# Creates bullet class and ship/enemy bullets with appropiate behavior
+
 import pygame
 import math
 import random

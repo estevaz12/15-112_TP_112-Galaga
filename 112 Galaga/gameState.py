@@ -1,3 +1,5 @@
+# Everything that has to do with the gameplay itself
+
 import pygame
 import random
 from pygameGame import PygameGame
@@ -188,14 +190,18 @@ class GamePlay(PygameGame):
                 # Spawn enemies
                 if self.time % 10 == 0:
                     if self.difficulty == "easy":
+
                         if len(self.gtFP) != 0:
+
                             if self.dir == "left": w = -Grunt.size
                             elif self.dir == "right": w = self.width + Grunt.size
+
                             self.enemies.add(Grunt(w, self.height/1.5, self.difficulty, \
                                                   self.gtFP[0][0][0], self.gtFP[0][0][1], self.dir))
                             self.enemies.add(Grunt(w, self.height/1.5 + Grunt.size + 5, self.difficulty, \
                                                   self.gtFP[0][1][0], self.gtFP[0][1][1], self.dir))
                             self.gtFP = self.gtFP[1:]
+
                         elif len(self.gdFP) != 0:
                             if self.dir == "left":
                                 w = self.width + Guard.size
@@ -203,18 +209,23 @@ class GamePlay(PygameGame):
                             elif self.dir == "right":
                                 w = -Guard.size
                                 d = "left"
+
                             self.enemies.add(Guard(w, self.height/1.5, self.difficulty, \
                                                   self.gdFP[0][0][0], self.gdFP[0][0][1], d))
                             self.enemies.add(Guard(w, self.height/1.5 + Guard.size + 5, self.difficulty, \
                                                   self.gdFP[0][1][0], self.gdFP[0][1][1], d))
                             self.gdFP = self.gdFP[1:]
+
                         elif len(self.bFP) != 0:
                             if self.dir == "left": w = -Boss.size
                             elif self.dir == "right": w = self.width + Boss.size
+
                             self.enemies.add(Boss(w, self.height/1.5, self.difficulty, \
                                                   self.bFP[0][0], self.bFP[0][1], self.dir))
                             self.bFP = self.bFP[1:]
+
                         else: self.entrance = False
+
                     elif self.difficulty == "normal":
                         if self.dir == "left": w1 = -Grunt.size
                         elif self.dir == "right": w1 = self.width + Grunt.size
@@ -340,10 +351,6 @@ class GamePlay(PygameGame):
 
                 if self.canShoot == False:
                     self.deathTime += 1
-                    # counter = 3
-                    # if self.deathTime % 50 == 0:
-                    #     counter = 3 - self.deathTime//50
-                    #     self.timerTxt = self.stateFont.render(str(counter), False, (0,255,255))
 
                 if self.deathTime != 0:
                     if self.deathTime % 75 == 0:
@@ -378,8 +385,6 @@ class GamePlay(PygameGame):
                             expl = eExplosion(enemy.rect.center)
                             self.enemyExpl.add(expl)
                             self.score += enemy.score
-                            # self.scoreTxt = self.scoreFont.render(str(self.score), False, \
-                            #                 (255,255,255), (0,0,0))
 
                     if pygame.sprite.groupcollide(self.shipGroup, self.enemyBullets, \
                        True, True, pygame.sprite.collide_circle):
@@ -456,11 +461,6 @@ class GamePlay(PygameGame):
             w, h = self.timerTxt.get_size()
             alignX = self.startX - w/2
             screen.blit(self.timerTxt, (alignX, self.height/2))
-
-        # if self.canShoot == False:
-        #     w, h = self.timerTxt.get_size()
-        #     alignX = self.startX - w/2
-        #     screen.blit(self.timerTxt, (alignX, self.height/2))
 
         if self.respawn:
             self.shipGroup.draw(screen)
